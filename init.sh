@@ -15,10 +15,9 @@ new_dir="$( dirname "$current_dir" )/$APP_NAME"
 mv "$current_dir" "$new_dir"
 
 code --no-exit
-
-
-url="http://localhost:$APP_PORT/"
-cmd.exe /c start "$url"
+cd ..
+cd $APP_NAME
+code .
 
 
 # Inicializa un nuevo repositorio Git
@@ -38,6 +37,10 @@ docker exec -it $APP_NAME sh -c "cd /var/www/html && composer install"
 # Realiza un commit inicial
 git add .
 git commit -m "Ready for programming"
+
+
+url="http://localhost:$APP_PORT/"
+cmd.exe /c start "$url"
 
 # Elimina el archivo init.sh
 rm -- "$0"
