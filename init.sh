@@ -18,6 +18,11 @@ docker-compose up -d
 # Elimina el archivo
 rm .gitattributes
 
+# Espera un poco para que el contenedor esté listo
+sleep 10
+source .env
+docker exec -it $APP_NAME sh -c "cd /var/www/html && composer install"
+
 # Realiza un commit inicial
 git add .
 git commit -m "First comit"
