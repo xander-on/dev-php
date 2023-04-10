@@ -14,6 +14,12 @@ current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 new_dir="$( dirname "$current_dir" )/$APP_NAME"
 mv "$current_dir" "$new_dir"
 
+code --no-exit
+
+
+url="http://localhost:$APP_PORT/"
+cmd.exe /c start "$url"
+
 
 # Inicializa un nuevo repositorio Git
 git init
