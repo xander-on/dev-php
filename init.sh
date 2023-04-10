@@ -15,6 +15,7 @@ new_dir="$( dirname "$current_dir" )/$APP_NAME"
 mv "$current_dir" "$new_dir"
 
 cmd.exe /C "taskkill /F /IM code.exe"
+# pkill code
 cd $new_dir
 code $new_dir
 
@@ -40,6 +41,7 @@ git commit -m "Ready for programming"
 
 url="http://localhost:$APP_PORT/"
 cmd.exe /c start "$url"
+# explorer.exe "$url"
 
 # Elimina el archivo init.sh
 rm -- "$0"
