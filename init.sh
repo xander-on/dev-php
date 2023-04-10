@@ -16,8 +16,7 @@ mv "$current_dir" "$new_dir"
 
 cmd.exe /C "taskkill /F /IM code.exe"
 # pkill code
-cd $new_dir
-code $new_dir
+code "$new_dir"
 
 
 # Inicializa un nuevo repositorio Git
@@ -42,6 +41,8 @@ git commit -m "Ready for programming"
 url="http://localhost:$APP_PORT/"
 cmd.exe /c start "$url"
 # explorer.exe "$url"
+
+cd "$new_dir"
 
 # Elimina el archivo init.sh
 rm -- "$0"
