@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
 // Definimos la clase MyApp
@@ -13,16 +13,8 @@ class MyApp {
     }
     
     public function run() {
-      // $name = 'Alexander';
-      $dev = $_ENV['DEV_NAME'];
-
-      
-      // Obtenemos el saludo personalizado
-      $greeting = $this->getGreeting($name);
-      
-      // Renderizamos la página de inicio
-      // require_once 'views/home.php';
-
+      $dev_name = $_ENV['DEV_NAME'];
+      $greeting = $this->getGreeting($dev_name);
       echo "<h1>$greeting</h1>";
     }
 }
