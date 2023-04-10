@@ -9,6 +9,12 @@ sed -i 's/=.*$/=/' .env.template
 # Elimina la carpeta .git
 rm -rf .git
 
+source .env
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+new_dir="$( dirname "$current_dir" )/$APP_NAME"
+mv "$current_dir" "$new_dir"
+
+
 # Inicializa un nuevo repositorio Git
 git init
 
@@ -20,12 +26,12 @@ rm .gitattributes
 
 # Espera un poco para que el contenedor esté listo
 sleep 10
-source .env
 docker exec -it $APP_NAME sh -c "cd /var/www/html && composer install"
+
 
 # Realiza un commit inicial
 git add .
-git commit -m "First comit"
+git commit -m "Ready for programming"
 
 # Elimina el archivo init.sh
 rm -- "$0"
