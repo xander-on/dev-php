@@ -39,8 +39,8 @@ git commit -m "Ready for programming"
 
 
 url="http://localhost:$APP_PORT/"
-cmd.exe /c start "$url"
-# explorer.exe "$url"
+# cmd.exe /c start "$url"
+explorer.exe "$url"
 
 cd "$new_dir"
 
