@@ -1,7 +1,5 @@
 # Pasos para levantar los servicios
 
-<!-- 1. Renombrar la carpeta del proyecto -->
-1. ubicarse en la terminal en la raiz del proyecto ejecutar ./init.sh
-<!-- 1. renombrar el archivo .env.template a .env (puedes crear una copia) -->
-1. incluir los datos en las variables de entorno .env
-1. docker-compose up -d
+1. Incluir los datos en las variables de entorno .env.template
+1. Ubicarse con la terminal en la raiz del proyecto ejecutar ./init.sh
+1. Ejecutar docker-compose up -d
