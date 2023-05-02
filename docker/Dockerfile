@@ -1,6 +1,6 @@
 FROM php:8.1-apache
 
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli pdo_mysql
 
 # Copiar la aplicación a la imagen del contenedor
 COPY . /var/www/html
@@ -17,12 +17,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN su - \
     && apt-get update \
-    && apt-get install -y git unzip zip \
-    && apt-get install -y libzip-dev \
+    && apt-get install -y nano git unzip zip libzip-dev \
     && docker-php-ext-install zip
-    
-# Ejecutar composer
-# RUN test -d vendor || composer install
 
 # Exponer el puerto 80 para que pueda ser accedido desde fuera del contenedor
 EXPOSE 80
+
